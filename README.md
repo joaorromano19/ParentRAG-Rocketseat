@@ -18,35 +18,35 @@ Com ele, é possível **carregar um PDF**, **dividir o texto em partes**, **cria
 
 ###  Clone o repositório
 
--git clone https://github.com/seuusuario/seurepositorio.git
--cd seurepositorio
+- git clone https://github.com/seuusuario/seurepositorio.git
+- cd seurepositorio
 ###  Crie um ambiente virtual
 
--python -m venv .venv
--.venv\Scripts\activate    # Windows
--source .venv/bin/activate # Linux/Mac
+- python -m venv .venv
+- .venv\Scripts\activate    # Windows
+- source .venv/bin/activate # Linux/Mac
 ### Instale as dependências
 
--pip install -r requirements.txt
+- pip install -r requirements.txt
 
 ### Configuração da Chave da OpenAI
--os.environ['OPENAI_API_KEY'] = "sua_chave_api_aqui"
+- os.environ['OPENAI_API_KEY'] = "sua_chave_api_aqui"
 ##  Como Funciona o Código
 ### Carregamento do PDF
 
--loader = PyPDFLoader(pdf_link, extract_images=False)
--pages = loader.load_and_split()
+- loader = PyPDFLoader(pdf_link, extract_images=False)
+- pages = loader.load_and_split()
 ### Divisão dos textos
--Usando dois níveis de divisão:
+- Usando dois níveis de divisão:
 
--child_splitter: pequenos trechos (chunk_size = 200)
+- child_splitter: pequenos trechos (chunk_size = 200)
 
--parent_splitter: blocos maiores (chunk_size = 4000)
+- parent_splitter: blocos maiores (chunk_size = 4000)
 
 ### Criação do Vetorstore e Retriever
 
--vectorstore = Chroma(embedding_function=embeddings, persist_directory="childVectorDB")
--parent_document_retriever = ParentDocumentRetriever(
+- vectorstore = Chroma(embedding_function=embeddings, persist_directory="childVectorDB")
+- parent_document_retriever = ParentDocumentRetriever(
     vectorstore=vectorstore,
     docstore=store,
     child_splitter=child_splitter,
@@ -54,7 +54,7 @@ Com ele, é possível **carregar um PDF**, **dividir o texto em partes**, **cria
 )
 ### Criação do Prompt e Execução da Query
 
--TEMPLATE = """
+- TEMPLATE = """
   Escreva o seu template
   Query: {question}
 
