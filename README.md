@@ -39,9 +39,9 @@ Com ele, é possível **carregar um PDF**, **dividir o texto em partes**, **cria
 ### Divisão dos textos
 - Usando dois níveis de divisão:
 
-- child_splitter: pequenos trechos (chunk_size = 200)
+    - child_splitter: pequenos trechos (chunk_size = 200)
 
-- parent_splitter: blocos maiores (chunk_size = 4000)
+    - parent_splitter: blocos maiores (chunk_size = 4000)
 
 ### Criação do Vetorstore e Retriever
 
@@ -60,4 +60,4 @@ Com ele, é possível **carregar um PDF**, **dividir o texto em partes**, **cria
 
   Context: {context}
 """
-parent_chain_retrival.invoke("Escreva sua pergunta aqui")
+- parent_chain_retrival.invoke("Escreva sua pergunta aqui")
